@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>대기질 조회 시스템</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+    .container{background:#fff;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,.1);padding:40px;max-width:620px;width:100%;text-align:center}
+    .header h1{font-size:2.2em;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+    .header p{color:#6c757d;margin-bottom:30px}
+    .form-group{margin-bottom:20px;text-align:left}
+    .form-group label{display:block;margin-bottom:8px;font-weight:700;color:#495057}
+    .form-group input{width:100%;padding:15px;border:2px solid #e9ecef;border-radius:10px;font-size:1em;transition:.2s}
+    .form-group input:focus{outline:none;border-color:#667eea;box-shadow:0 0 10px rgba(102,126,234,.2)}
+    .search-btn{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:14px 26px;border:0;border-radius:25px;font-size:1.05em;font-weight:700;cursor:pointer;width:100%}
+    .error{background:#f8d7da;color:#721c24;padding:15px;border-radius:10px;margin-bottom:20px}
+    .links{margin-top:20px}
+    .links a{display:inline-block;margin:5px 10px;padding:10px 20px;background:#f8f9fa;color:#495057;text-decoration:none;border-radius:8px}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>대기질 조회 시스템</h1>
+            <p>주소나 장소명을 입력하여 실시간 대기질 정보를 확인하세요</p>
+        </div>
+        {% if error %}<div class="error">{{ error }}</div>{% endif %}
+        <form method="POST" action="/search">
+            <div class="form-group">
+                <label for="q">주소 또는 장소명</label>
+                <input type="text" id="q" name="q" value="{{ q }}" placeholder="예: 강남역, 광화문광장" required>
+            </div>
+            <button type="submit" class="search-btn">대기질 조회하기</button>
+        </form>
+        <div class="links"><a href="/health">시스템 상태</a></div>
+    </div>
+</body>
+</html>
