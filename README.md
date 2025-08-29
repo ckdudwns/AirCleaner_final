@@ -33,7 +33,7 @@
 * 카카오 및 공공데이터포털 API 키 발급
 
 ### 2. 프로젝트 설정
-* `git clone https://github.com/ckdudwns/AirCleaner_New.git`
+* `git clone https://github.com/ckdudwns/AirCleaner_final.git`
 * `cd AirCleaner_New/localINFO_DGU`
 
 ### 3. 필수 라이브러리 설치
